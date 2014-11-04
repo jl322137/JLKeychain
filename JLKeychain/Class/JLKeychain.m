@@ -10,11 +10,11 @@
 
 #import "KeychainItemWrapper.h"
 
-#define OTS_KEYCHAIN_IDENTITY @"OTS_KEYCHAIN_IDENTITY"
+#define KEYCHAIN_IDENTITY @"KEYCHAIN_IDENTITY"
 
-#define OTS_KEYCHAIN_GROUP @""
+#define KEYCHAIN_GROUP @""
 
-#define OTS_KEYCHAIN_DICT_ENCODE_KEY_VALUE @"OTS_KEYCHAIN_DICT_ENCODE_KEY_VALUE"
+#define KEYCHAIN_DICT_ENCODE_KEY_VALUE @"KEYCHAIN_DICT_ENCODE_KEY_VALUE"
 
 @interface JLKeychain ()
 
@@ -55,7 +55,7 @@
 
 - (void)setup
 {
-    KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:OTS_KEYCHAIN_IDENTITY accessGroup:nil];
+    KeychainItemWrapper *wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:KEYCHAIN_IDENTITY accessGroup:nil];
     self.otsItem = wrapper;
 }
 
@@ -96,7 +96,7 @@
     data = [keychain encodeDict:dict];
     
     if (data && [data isKindOfClass:[NSMutableData class]]) {
-        [keychain.otsItem setObject:OTS_KEYCHAIN_IDENTITY forKey:(__bridge id)(kSecAttrAccount)];
+        [keychain.otsItem setObject:KEYCHAIN_IDENTITY forKey:(__bridge id)(kSecAttrAccount)];
         [keychain.otsItem setObject:data forKey:(__bridge id)kSecValueData];
     }
 }
@@ -127,7 +127,7 @@
     id data = [keychain encodeDict:[NSMutableDictionary dictionary]];
     
     if (data && [data isKindOfClass:[NSMutableData class]]) {
-        [keychain.otsItem setObject:OTS_KEYCHAIN_IDENTITY forKey:(__bridge id)(kSecAttrAccount)];
+        [keychain.otsItem setObject:KEYCHAIN_IDENTITY forKey:(__bridge id)(kSecAttrAccount)];
         [keychain.otsItem setObject:data forKey:(__bridge id)kSecValueData];
     }
 }
@@ -136,7 +136,7 @@
 {
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
-    [archiver encodeObject:dict forKey:OTS_KEYCHAIN_DICT_ENCODE_KEY_VALUE];
+    [archiver encodeObject:dict forKey:KEYCHAIN_DICT_ENCODE_KEY_VALUE];
     [archiver finishEncoding];
     return data;
 }
@@ -145,9 +145,9 @@
 {
     NSMutableDictionary *dict = nil;
     NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-    if ([unarchiver containsValueForKey:OTS_KEYCHAIN_DICT_ENCODE_KEY_VALUE]) {
+    if ([unarchiver containsValueForKey:KEYCHAIN_DICT_ENCODE_KEY_VALUE]) {
         @try {
-            dict = [unarchiver decodeObjectForKey:OTS_KEYCHAIN_DICT_ENCODE_KEY_VALUE];
+            dict = [unarchiver decodeObjectForKey:KEYCHAIN_DICT_ENCODE_KEY_VALUE];
         }
         @catch (NSException *exception) {
             NSLog(@"keychain decode error, maybe contain some object didn`t in this project, so reset");
