@@ -14,6 +14,8 @@
 		3D6AE19D1A08742800C0BB71 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D6AE19C1A08742800C0BB71 /* Images.xcassets */; };
 		3D6AE1A01A08742800C0BB71 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D6AE19E1A08742800C0BB71 /* LaunchScreen.xib */; };
 		3D6AE1AC1A08742900C0BB71 /* JLKeychainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6AE1AB1A08742900C0BB71 /* JLKeychainTests.m */; };
+		3D6AE1B91A0874A000C0BB71 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6AE1B81A0874A000C0BB71 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3D6AE1BC1A0874B400C0BB71 /* JLKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D6AE1BB1A0874B400C0BB71 /* JLKeychain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		3D6AE1A51A08742800C0BB71 /* JLKeychainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JLKeychainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D6AE1AA1A08742900C0BB71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D6AE1AB1A08742900C0BB71 /* JLKeychainTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLKeychainTests.m; sourceTree = "<group>"; };
+		3D6AE1B71A0874A000C0BB71 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		3D6AE1B81A0874A000C0BB71 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		3D6AE1BA1A0874B400C0BB71 /* JLKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLKeychain.h; sourceTree = "<group>"; };
+		3D6AE1BB1A0874B400C0BB71 /* JLKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLKeychain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		3D6AE18E1A08742800C0BB71 /* JLKeychain */ = {
 			isa = PBXGroup;
 			children = (
+				3D6AE1B51A08743B00C0BB71 /* Class */,
 				3D6AE1931A08742800C0BB71 /* AppDelegate.h */,
 				3D6AE1941A08742800C0BB71 /* AppDelegate.m */,
 				3D6AE1961A08742800C0BB71 /* ViewController.h */,
@@ -117,6 +124,25 @@
 				3D6AE1AA1A08742900C0BB71 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D6AE1B51A08743B00C0BB71 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				3D6AE1B61A0874A000C0BB71 /* KeychainItemWrapper */,
+				3D6AE1BA1A0874B400C0BB71 /* JLKeychain.h */,
+				3D6AE1BB1A0874B400C0BB71 /* JLKeychain.m */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		3D6AE1B61A0874A000C0BB71 /* KeychainItemWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				3D6AE1B71A0874A000C0BB71 /* KeychainItemWrapper.h */,
+				3D6AE1B81A0874A000C0BB71 /* KeychainItemWrapper.m */,
+			);
+			path = KeychainItemWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +245,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D6AE1B91A0874A000C0BB71 /* KeychainItemWrapper.m in Sources */,
 				3D6AE1981A08742800C0BB71 /* ViewController.m in Sources */,
+				3D6AE1BC1A0874B400C0BB71 /* JLKeychain.m in Sources */,
 				3D6AE1951A08742800C0BB71 /* AppDelegate.m in Sources */,
 				3D6AE1921A08742800C0BB71 /* main.m in Sources */,
 			);
