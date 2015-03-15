@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "JLKeychain.h"
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +19,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [JLKeychain setKeychainValue:@"hello keychain" forType:@"key"];
+    
+    NSLog(@"%@",[JLKeychain getKeychainValueForType:@"key"]);
+    
     return YES;
 }
 
